@@ -1,4 +1,6 @@
-﻿namespace ApiGerenciadorSalas.Entities;
+﻿using System.Text.Json.Serialization;
+
+namespace ApiGerenciadorSalas.Entities;
 
 public class Sala
 {
@@ -7,6 +9,6 @@ public class Sala
     public string Chave { get; set; }
     public string ChaveReserva { get; set; }
     public int Cadeiras { get; set; }
-    
+    [JsonIgnore]
     public ICollection<SalaSoftware> SalaSoftwares { get; set; }
 }

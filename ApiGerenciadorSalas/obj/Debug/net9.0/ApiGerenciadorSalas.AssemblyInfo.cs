@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ApiGerenciadorSalas")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f93abcea3fb07bb142c547d954ddbce153f8443f")]
 [assembly: System.Reflection.AssemblyProductAttribute("ApiGerenciadorSalas")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ApiGerenciadorSalas")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
