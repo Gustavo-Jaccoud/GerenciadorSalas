@@ -41,4 +41,29 @@ public class SalaService : ISalaService
             return response;
         }
     }
+
+    public  async Task<ResponseModel<Sala>> GetById(int salaId)
+    {
+        ResponseModel<Sala> response = new ResponseModel<Sala>();
+        try
+        {
+            response.Data = await _repository.GetById(salaId);
+            response.Message = "Sala Encontrada com sucesso.";
+            response.StatusCode = 200;
+            if (response.Data == null)
+            {
+                response.Message = "Sala não encontrada.";
+                response.StatusCode = 204;
+                return response;
+            }
+            return response;
+        }
+        catch (Exception ex)
+        {
+            response.Data = null;
+            response.Message = $"Erro ao encontrar a sala: {ex.Message}";
+            response.StatusCode = 500;
+            return response;
+        }
+    }
 }

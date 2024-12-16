@@ -7,4 +7,6 @@ public interface ISalaRepository
 {
     Task<IEnumerable<Sala>> GetAll();
     Task<Sala> Create(SalaCriacaoDto salaCriacaoDto);
+    
+    Task<Sala> GetById(int salaId);
 }

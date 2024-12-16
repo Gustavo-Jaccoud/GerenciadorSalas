@@ -30,5 +30,13 @@ namespace ApiGerenciadorSalas.Controllers
             var sala = await _salaService.Create(salaCriacaoDto);
             return Ok(sala);
         }
+
+        [HttpGet("{idSala}")]
+        public async Task<ActionResult<ResponseModel<Sala>>> GetById(int idSala)
+        {
+            var sala = await _salaService.GetById(idSala);
+            return Ok(sala);
+        }
+        
     }
 }

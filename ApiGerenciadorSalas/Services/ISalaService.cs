@@ -8,4 +8,6 @@ public interface ISalaService
 {
     Task<ResponseModel<IEnumerable<Sala>>> GetAll();
     Task<ResponseModel<Sala>> Create(SalaCriacaoDto salaCriacaoDto);
+    
+    Task<ResponseModel<Sala>> GetById(int salaId);
 }

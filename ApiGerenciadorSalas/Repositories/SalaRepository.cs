@@ -1,7 +1,6 @@
 ﻿using ApiGerenciadorSalas.Context;
 using ApiGerenciadorSalas.Dto.Sala;
 using ApiGerenciadorSalas.Entities;
-using ApiGerenciadorSalas.Entities.Responses;
 using Microsoft.EntityFrameworkCore;
 
 namespace ApiGerenciadorSalas.Repositories;
@@ -17,7 +16,7 @@ public class SalaRepository : ISalaRepository
     
     public async Task<IEnumerable<Sala>> GetAll()
     {
-        return await _context.Set<Sala>()
+        return await _context.Salas
             .AsNoTracking()
             .ToListAsync();
     }
@@ -37,5 +36,12 @@ public class SalaRepository : ISalaRepository
           
             return sala;
             
+    }
+
+    public async Task<Sala> GetById(int salaId)
+    {
+        return await _context.Salas
+            .AsNoTracking()
+            .FirstOrDefaultAsync(s => s.Id == salaId);
     }
 }
