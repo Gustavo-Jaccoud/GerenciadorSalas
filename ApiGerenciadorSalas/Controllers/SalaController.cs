@@ -1,4 +1,7 @@
-﻿using ApiGerenciadorSalas.Services;
+﻿using ApiGerenciadorSalas.Dto.Sala;
+using ApiGerenciadorSalas.Entities;
+using ApiGerenciadorSalas.Entities.Responses;
+using ApiGerenciadorSalas.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiGerenciadorSalas.Controllers
@@ -19,6 +22,13 @@ namespace ApiGerenciadorSalas.Controllers
         {
             var salas = await _salaService.GetAll();
             return Ok(salas);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<ResponseModel<Sala>>> Create(SalaCriacaoDto salaCriacaoDto)
+        {
+            var sala = await _salaService.Create(salaCriacaoDto);
+            return Ok(sala);
         }
     }
 }

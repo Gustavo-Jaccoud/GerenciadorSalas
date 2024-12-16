@@ -1,4 +1,5 @@
-﻿using ApiGerenciadorSalas.Entities;
+﻿using ApiGerenciadorSalas.Dto.Sala;
+using ApiGerenciadorSalas.Entities;
 using ApiGerenciadorSalas.Entities.Responses;
 using ApiGerenciadorSalas.Repositories;
 
@@ -19,5 +20,25 @@ public class SalaService : ISalaService
         response.Message = "Sucesso";
         response.StatusCode = 200;
         return response;
+    }
+
+    public async Task<ResponseModel<Sala>> Create(SalaCriacaoDto salaCriacaoDto)
+    {
+        ResponseModel<Sala> response = new ResponseModel<Sala>();
+        try
+        {
+            
+            response.Data = await _repository.Create(salaCriacaoDto);
+            response.Message = "Sala criada com sucesso.";
+            response.StatusCode = 201;
+            return response;
+        }
+        catch (Exception ex)
+        {
+            response.Data = null;
+            response.Message = $"Erro ao criar a sala: {ex.Message}";
+            response.StatusCode = 500;
+            return response;
+        }
     }
 }
