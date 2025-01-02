@@ -90,4 +90,29 @@ public class SalaService : ISalaService
             return response;
         }
     }
+
+    public async Task<ResponseModel<Sala>> Delete(int salaId)
+    {
+        ResponseModel<Sala> response = new ResponseModel<Sala>();
+        
+        try
+        {
+            response.Data =  await _repository.Delete(salaId);
+            response.StatusCode = 200;
+            if (response.Data == null)
+            {
+                response.Message = "Sala não encontrada.";
+                return response;
+            }
+            response.Message = "Sala atulizada com sucesso.";
+            return response;
+        }
+        catch (Exception ex)
+        {
+            response.Data = null;
+            response.Message = $"Erro ao encontrar a sala: {ex.Message}";
+            response.StatusCode = 500;
+            return response;
+        }
+    }
 }

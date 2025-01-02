@@ -11,4 +11,6 @@ public interface ISalaRepository
     Task<Sala> GetById(int salaId);
     
     Task<Sala> Update(int salaId,SalaDto salaDto);
+    
+    Task<Sala> Delete(int salaId);
 }

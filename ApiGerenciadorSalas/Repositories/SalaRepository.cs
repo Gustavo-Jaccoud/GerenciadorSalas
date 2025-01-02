@@ -62,4 +62,12 @@ public class SalaRepository : ISalaRepository
         
         return sala;
     }
+
+    public async Task<Sala> Delete(int salaId)
+    {
+        var sala = await GetById(salaId);
+        _context.Remove(sala);
+        await _context.SaveChangesAsync();
+        return sala;
+    }
 }

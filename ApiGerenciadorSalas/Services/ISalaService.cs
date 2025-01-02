@@ -12,4 +12,6 @@ public interface ISalaService
     Task<ResponseModel<Sala>> GetById(int salaId);
     
     Task<ResponseModel<Sala>> Update(int salaId, SalaDto salaDto);
+    
+    Task<ResponseModel<Sala>> Delete(int salaId);
 }

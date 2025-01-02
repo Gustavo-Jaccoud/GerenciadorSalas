@@ -44,6 +44,13 @@ namespace ApiGerenciadorSalas.Controllers
             var sala = await _salaService.Update(idSala,salaDto);
             return Ok(sala);
         }
+
+        [HttpDelete("{idSala}")]
+        public async Task<ActionResult<ResponseModel<Sala>>> Delete(int idSala)
+        {
+            var sala = await _salaService.Delete(idSala);
+            return Ok(sala);
+        }
         
     }
 }
