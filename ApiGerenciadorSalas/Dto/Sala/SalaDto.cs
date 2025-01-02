@@ -1,6 +1,6 @@
 ﻿namespace ApiGerenciadorSalas.Dto.Sala;
 
-public class SalaCriacaoDto
+public class SalaDto
 {
     public string Nome { get; set; }
     public string Chave { get; set; }

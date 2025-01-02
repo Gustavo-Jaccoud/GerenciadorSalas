@@ -21,15 +21,15 @@ public class SalaRepository : ISalaRepository
             .ToListAsync();
     }
 
-    public async Task<Sala> Create(SalaCriacaoDto salaCriacaoDto)
+    public async Task<Sala> Create(SalaDto salaDto)
     {
 
             var sala = new Sala()
             {
-                Nome = salaCriacaoDto.Nome,
-                Chave = salaCriacaoDto.Chave,
-                ChaveReserva = salaCriacaoDto.ChaveReserva,
-                Cadeiras = salaCriacaoDto.Cadeiras,
+                Nome = salaDto.Nome,
+                Chave = salaDto.Chave,
+                ChaveReserva = salaDto.ChaveReserva,
+                Cadeiras = salaDto.Cadeiras,
             };
             _context.Add(sala);
             await _context.SaveChangesAsync();
@@ -43,5 +43,23 @@ public class SalaRepository : ISalaRepository
         return await _context.Salas
             .AsNoTracking()
             .FirstOrDefaultAsync(s => s.Id == salaId);
+    }
+
+    public async Task<Sala> Update(int salaId, SalaDto salaDto)
+    {
+        var sala = await GetById(salaId);
+
+        if (sala != null)
+        {
+            sala.Nome = salaDto.Nome;
+            sala.Chave = salaDto.Chave;
+            sala.ChaveReserva = salaDto.ChaveReserva;
+            sala.Cadeiras = salaDto.Cadeiras;
+        }
+
+        _context.Update(sala);
+        await _context.SaveChangesAsync();
+        
+        return sala;
     }
 }

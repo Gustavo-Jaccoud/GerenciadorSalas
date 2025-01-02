@@ -22,13 +22,13 @@ public class SalaService : ISalaService
         return response;
     }
 
-    public async Task<ResponseModel<Sala>> Create(SalaCriacaoDto salaCriacaoDto)
+    public async Task<ResponseModel<Sala>> Create(SalaDto salaDto)
     {
         ResponseModel<Sala> response = new ResponseModel<Sala>();
         try
         {
             
-            response.Data = await _repository.Create(salaCriacaoDto);
+            response.Data = await _repository.Create(salaDto);
             response.Message = "Sala criada com sucesso.";
             response.StatusCode = 201;
             return response;
@@ -56,6 +56,30 @@ public class SalaService : ISalaService
                 response.StatusCode = 204;
                 return response;
             }
+            return response;
+        }
+        catch (Exception ex)
+        {
+            response.Data = null;
+            response.Message = $"Erro ao encontrar a sala: {ex.Message}";
+            response.StatusCode = 500;
+            return response;
+        }
+    }
+
+    public async Task<ResponseModel<Sala>> Update(int salaId, SalaDto salaDto)
+    {
+        ResponseModel<Sala> response = new ResponseModel<Sala>();
+        try
+        {
+            response.Data = await _repository.Update(salaId,salaDto);
+            response.StatusCode = 200;
+            if (response.Data == null)
+            {
+                response.Message = "Sala não encontrada.";
+                return response;
+            }
+            response.Message = "Sala atulizada com sucesso.";
             return response;
         }
         catch (Exception ex)

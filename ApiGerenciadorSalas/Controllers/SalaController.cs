@@ -25,9 +25,9 @@ namespace ApiGerenciadorSalas.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<ResponseModel<Sala>>> Create(SalaCriacaoDto salaCriacaoDto)
+        public async Task<ActionResult<ResponseModel<Sala>>> Create(SalaDto salaDto)
         {
-            var sala = await _salaService.Create(salaCriacaoDto);
+            var sala = await _salaService.Create(salaDto);
             return Ok(sala);
         }
 
@@ -35,6 +35,13 @@ namespace ApiGerenciadorSalas.Controllers
         public async Task<ActionResult<ResponseModel<Sala>>> GetById(int idSala)
         {
             var sala = await _salaService.GetById(idSala);
+            return Ok(sala);
+        }
+        
+        [HttpPut("{idSala}")]
+        public async Task<ActionResult<ResponseModel<Sala>>> Update(int idSala,SalaDto salaDto)
+        {
+            var sala = await _salaService.Update(idSala,salaDto);
             return Ok(sala);
         }
         
