@@ -3,7 +3,7 @@
 public class SalaDto
 {
     public string Nome { get; set; }
-    public string Chave { get; set; }
-    public string ChaveReserva { get; set; }
+    public bool Chave { get; set; }
+    public bool ChaveReserva { get; set; }
     public int Cadeiras { get; set; }
 }

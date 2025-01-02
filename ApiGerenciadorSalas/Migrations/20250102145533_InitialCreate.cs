@@ -18,8 +18,8 @@ namespace ApiGerenciadorSalas.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Nome = table.Column<string>(type: "text", nullable: false),
-                    Chave = table.Column<string>(type: "text", nullable: false),
-                    ChaveReserva = table.Column<string>(type: "text", nullable: false),
+                    Chave = table.Column<bool>(type: "boolean", nullable: false),
+                    ChaveReserva = table.Column<bool>(type: "boolean", nullable: false),
                     Cadeiras = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>

@@ -11,8 +11,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ApiGerenciadorSalas.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241211154311_InitialCreate2")]
-    partial class InitialCreate2
+    [Migration("20250102145533_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,13 +35,11 @@ namespace ApiGerenciadorSalas.Migrations
                     b.Property<int>("Cadeiras")
                         .HasColumnType("integer");
 
-                    b.Property<string>("Chave")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<bool>("Chave")
+                        .HasColumnType("boolean");
 
-                    b.Property<string>("ChaveReserva")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<bool>("ChaveReserva")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Nome")
                         .IsRequired()

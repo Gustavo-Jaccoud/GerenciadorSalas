@@ -32,13 +32,11 @@ namespace ApiGerenciadorSalas.Migrations
                     b.Property<int>("Cadeiras")
                         .HasColumnType("integer");
 
-                    b.Property<string>("Chave")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<bool>("Chave")
+                        .HasColumnType("boolean");
 
-                    b.Property<string>("ChaveReserva")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<bool>("ChaveReserva")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Nome")
                         .IsRequired()
