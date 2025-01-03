@@ -20,7 +20,7 @@ public class SoftwareService : ISoftwareService
         try
         {
             response.Data = await _repository.GetAll();
-            response.Message = "Sucesso";
+            response.Message = "Sucesso na requisição";
             response.StatusCode = 200;
             Console.WriteLine(response.Data);
             if (!response.Data.Any())
@@ -38,9 +38,22 @@ public class SoftwareService : ISoftwareService
         }
     }
 
-    public Task<ResponseModel<Software>> Create(SoftwareDto softwareDto)
+    public async Task<ResponseModel<Software>> Create(SoftwareDto softwareDto)
     {
-        throw new NotImplementedException();
+        ResponseModel<Software> response = new ResponseModel<Software>();
+        try
+        {
+            response.Data = await _repository.Create(softwareDto);
+            response.Message = "Software cadastrado com sucesso";
+            response.StatusCode = 200;
+            return response;
+        }
+        catch (Exception ex)
+        {
+            response.Message = $"Erro ao criar software: {ex.Message}";
+            response.StatusCode = 500;
+            return response;
+        }
     }
 
     public Task<ResponseModel<Software>> GetById(int softwareId)

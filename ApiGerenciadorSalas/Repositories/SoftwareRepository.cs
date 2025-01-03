@@ -21,9 +21,16 @@ public class SoftwareRepository : ISoftwareRepository
            .ToListAsync();
     }
 
-    public Task<Software> Create(SoftwareDto softwareDto)
+    public async Task<Software> Create(SoftwareDto softwareDto)
     {
-        throw new NotImplementedException();
+        var software = new Software()
+        {
+            Nome = softwareDto.Nome,
+            Versao = softwareDto.Versao
+        };
+        _context.Add(software);
+        await _context.SaveChangesAsync();
+        return software;
     }
 
     public Task<Software> GetById(int softwareId)
