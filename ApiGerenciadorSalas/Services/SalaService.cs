@@ -1,7 +1,8 @@
 ﻿using ApiGerenciadorSalas.Dto.Sala;
 using ApiGerenciadorSalas.Entities;
 using ApiGerenciadorSalas.Entities.Responses;
-using ApiGerenciadorSalas.Repositories;
+using ApiGerenciadorSalas.Repositories.Interfaces;
+using ApiGerenciadorSalas.Services.Interfaces;
 
 namespace ApiGerenciadorSalas.Services;
 

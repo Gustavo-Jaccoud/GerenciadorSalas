@@ -1,7 +1,7 @@
 ﻿using ApiGerenciadorSalas.Dto.Sala;
 using ApiGerenciadorSalas.Entities;
 using ApiGerenciadorSalas.Entities.Responses;
-using ApiGerenciadorSalas.Services;
+using ApiGerenciadorSalas.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiGerenciadorSalas.Controllers

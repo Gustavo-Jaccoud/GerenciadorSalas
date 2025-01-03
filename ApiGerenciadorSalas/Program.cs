@@ -1,6 +1,8 @@
 using ApiGerenciadorSalas.Context;
 using ApiGerenciadorSalas.Repositories;
+using ApiGerenciadorSalas.Repositories.Interfaces;
 using ApiGerenciadorSalas.Services;
+using ApiGerenciadorSalas.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -19,6 +21,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<ISalaRepository, SalaRepository>();
 builder.Services.AddScoped<ISalaService, SalaService>();
+builder.Services.AddScoped<ISoftwareRepository, SoftwareRepository>();
+builder.Services.AddScoped<ISoftwareService, SoftwareService>();
 
 
 var app = builder.Build();

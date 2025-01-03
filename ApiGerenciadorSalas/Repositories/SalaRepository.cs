@@ -1,6 +1,7 @@
 ﻿using ApiGerenciadorSalas.Context;
 using ApiGerenciadorSalas.Dto.Sala;
 using ApiGerenciadorSalas.Entities;
+using ApiGerenciadorSalas.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace ApiGerenciadorSalas.Repositories;

@@ -1,7 +1,7 @@
 ﻿using ApiGerenciadorSalas.Dto.Sala;
 using ApiGerenciadorSalas.Entities;
 
-namespace ApiGerenciadorSalas.Repositories;
+namespace ApiGerenciadorSalas.Repositories.Interfaces;
 
 public interface ISalaRepository
 {

@@ -2,7 +2,7 @@
 using ApiGerenciadorSalas.Entities;
 using ApiGerenciadorSalas.Entities.Responses;
 
-namespace ApiGerenciadorSalas.Services;
+namespace ApiGerenciadorSalas.Services.Interfaces;
 
 public interface ISalaService
 {
